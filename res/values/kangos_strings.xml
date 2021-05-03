@@ -189,8 +189,9 @@
     <string name="fod_pressed_color_cyan">Cyan</string>
     <string name="fod_pressed_color_green">Green</string>
     <string name="fod_pressed_color_yellow">Yellow</string>
-
-     <!-- Smart Pixels -->
+    <string name="fod_pressed_color_light_yellow">Light Yellow</string>
+ 
+    <!-- Smart Pixels -->
     <string name="smart_pixels_title">Smart Pixels</string>
     <string name="smart_pixels_summary">Save battery by shutting off extra pixels (This may leads to Touch inefficiency)</string>
     <string name="smart_pixels_enable_title">Enable Smart Pixels</string>
