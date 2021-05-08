@@ -45,7 +45,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import com.awaken.settings.utils.Utils;
 import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingEditTextPreference;
 import com.dirtyunicorns.support.preferences.SystemSettingSwitchPreference;
@@ -58,12 +58,14 @@ public class Lockscreen extends SettingsPreferenceFragment implements
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
 
     private CustomSeekBarPreference mMaxKeyguardNotifConfig;
     private PreferenceCategory mFODIconPickerCategory;
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private CustomSeekBarPreference mLockscreenBlur;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -93,6 +95,11 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3);
         mMaxKeyguardNotifConfig.setValue(kgconf);
         mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
+
+        mLockscreenBlur = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        if (!Utils.isBlurSupported()) {
+            prefScreen.removePreference(mLockscreenBlur);
+        }
 
         mFODIconPickerCategory = findPreference(FOD_ICON_PICKER_CATEGORY);
         if (mFODIconPickerCategory != null && !FodUtils.hasFodSupport(getContext())) {
