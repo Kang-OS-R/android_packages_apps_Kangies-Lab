@@ -78,11 +78,6 @@
             android:summary="@string/fp_unlock_keystore_summary"
             android:defaultValue="false" />
 
-    <SwitchPreference
-        android:key="fingerprint_success_vib"
-        android:title="@string/fprint_sucess_vib_title"
-        android:summary="@string/fprint_sucess_vib_summary"
-        android:persistent="true" />
     </PreferenceCategory>
 
 
@@ -91,6 +86,11 @@
         android:key="lock_screen_notifications"
         android:title="@string/LS_Notifications_category_title">
 
+    <SwitchPreference
+        android:key="fingerprint_success_vib"
+        android:title="@string/fprint_sucess_vib_title"
+        android:summary="@string/fprint_sucess_vib_summary"
+        android:persistent="true" />
 
     <com.dirtyunicorns.support.preferences.SecureSettingSwitchPreference
         android:key="lock_screen_transparent_notifications_enabled"
